@@ -4,12 +4,15 @@ import Header from './components/Header';
 import { useState } from 'react';
 
 function App() {
-const [sessionType, setSessionType] = useState('work');
+    const [isWorking, setIsWorking] = useState(true);
+
+    console.log(isWorking);
+    
 
     return (
-        <div className={`h-screen transition-colors duration-500 ${sessionType === 'work' ? 'bg-blue-900' : 'bg-green-700'} text-white`}>
-            <Header sessionType={sessionType} setSessionType={setSessionType}/>
-            <Timer sessionType={sessionType} setSessionType={setSessionType}/>
+        <div className={`h-screen transition-colors duration-500 ${isWorking ? 'bg-blue-900' : 'bg-green-700'} text-white`}>
+            <Header/>
+            <Timer isWorking={isWorking} setIsWorking={setIsWorking}/>
         </div>
     );
 }
